@@ -27,10 +27,13 @@
 #-------------------------------------------------
 #
 #
+def daysInMonth(year, month):
+    daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    return(daysInMonth[month-1])   
 
 def nextDay(year, month, day):              #ok, define what nextDay is
     """Simple version: assume every month has 30 days"""
-    if day < 30:                            #if day is less than 30
+    if day < daysInMonth(year, month):                            #if day is less than 30
         return year, month, day + 1         #return next day
     else:                                   #if not, in other words, when day is 30 or more,
         if month == 12:                     #if month is 12 (12.30)
@@ -53,7 +56,7 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):       #Functions
        and year2/month2/day2. Assumes inputs are valid dates
        in Gregorian calendar, and the first date is not after
        the second."""
-        
+     
     # YOUR CODE HERE!
     assert not whetherbefore(year2, month2, day2, year1, month1, day1)  #AssertionError gets raised if date2 is before date1
     totaldates = 0                                                    #below is a PSEUDOCODE!!!
@@ -62,9 +65,12 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):       #Functions
       totaldates += 1                                                 #this functions as a counter for the loop, as to how many times nextDay worked in this loop until it gets the day before date2
     return totaldates                                                 #return total days between dates of the two *the reason for the indentation in this way is to escape the while block(? maybe)
 
-print daysBetweenDates(1983,2,7,2017,4,23)   
+print daysBetweenDates(2017,2,23,2017,4,23)   
 
     ##
+
+
+
 
 
 # Test routine
