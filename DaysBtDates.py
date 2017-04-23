@@ -12,7 +12,7 @@
 #else if (year is not divisible by 400) then (it is a common year)
 #else (it is a leap year)
 #-------------------------------
-#------basic equation-----------
+#------basic algebraic equation for brainstorming-----------
 # 2017. 3. 22
 #-2016. 8. 22
 #
@@ -55,6 +55,7 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):       #Functions
        the second."""
         
     # YOUR CODE HERE!
+    assert not whetherbefore(year2, month2, day2, year1, month1, day1)  #AssertionError gets raised if date2 is before date1
     totaldates = 0                                                    #below is a PSEUDOCODE!!!
     while whetherbefore(year1, month1, day1, year2, month2, day2):    #while True (as long as date1 is before date2; see helper function)
       (year1, month1, day1) = nextDay(year1, month1, day1)            #so, date1 gets added by 1 until it gets the day before date2, and it stops (only while true)
