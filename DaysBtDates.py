@@ -27,31 +27,42 @@
 #-------------------------------------------------
 #
 #
-def nextDay(year, month, day):
-    """
-    Returns the year, month, day of the next day.
-    Simple version: assume every month has 30 days.
-    """
-    # YOUR CODE HERE
-    if day < 30:                    # if day is less than 30
-      return year, month, day + 1   #retun day + 1
-    else:                           #in the case that day equals to 30 or more
-      if month < 12:                #if month is less than 12
-        return year, month + 1, 1   #retun 1 for the day, and for month, month + 1
-      else:                         #in the case that the month equals to 12
-        return year + 1, 1, 1       #return 1 for day, 1 for month, year +1
 
-print nextDay(1999, 12, 30)
+def nextDay(year, month, day):              #ok, define what nextDay is
+    """Simple version: assume every month has 30 days"""
+    if day < 30:                            #if day is less than 30
+        return year, month, day + 1         #return next day
+    else:                                   #if not, in other words, when day is 30 or more,
+        if month == 12:                     #if month is 12 (12.30)
+            return year + 1, 1, 1           #return next year and Jan. 1
+        else:                               #if not, in other words, when month is not 12
+            return year, month + 1, 1       #return next month, 1
 
+def whetherbefore(year1, month1, day1, year2, month2, day2):  #HELPER FUNCTION!!!! define what whetherbefore is : only returns T/F for the while loop below
+    if year1 < year2:           #if year1 is before year2
+      return True               #return True
+    if year1 == year2:          #if year1 is the same yr as year2
+      if month1 < month2:       #if month1 is before month2
+        return True             #return True
+      if month1 == month2:      #if month1 is the same yr as month2
+        return day1 < day2      #and if day1 is before day2, return True
+    return False
+        
+def daysBetweenDates(year1, month1, day1, year2, month2, day2):       #Functions always take (variables).
+    """Returns the number of days between year1/month1/day1
+       and year2/month2/day2. Assumes inputs are valid dates
+       in Gregorian calendar, and the first date is not after
+       the second."""
+        
+    # YOUR CODE HERE!
+    totaldates = 0                                                    #below is a PSEUDOCODE!!!
+    while whetherbefore(year1, month1, day1, year2, month2, day2):    #while True (as long as date1 is before date2; see helper function)
+      (year1, month1, day1) = nextDay(year1, month1, day1)            #so, date1 gets added by 1 until it gets the day before date2, and it stops (only while true)
+      totaldates += 1                                                 #this functions as a counter for the loop, as to how many times nextDay worked in this loop until it gets the day before date2
+    return totaldates                                                 #return total days between dates of the two *the reason for the indentation in this way is to escape the while block(? maybe)
 
+print daysBetweenDates(1983,2,7,2017,4,23)   
 
-
-def daysBetweenDates(year1, month1, day1, year2, month2, day2):
-    ##
-    # Your code here.
-
-
-    return
     ##
 
 
