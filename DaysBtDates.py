@@ -6,12 +6,25 @@
 # Assume that the birthday and current date are correct dates (and no 
 # time travel). 
 #
+#----def. of leap year----------
 #if (year is not divisible by 4) then (it is a common year)
 #else if (year is not divisible by 100) then (it is a leap year)
 #else if (year is not divisible by 400) then (it is a common year)
 #else (it is a leap year)
+#-------------------------------
+#------basic equation-----------
+# 2017. 3. 22
+#-2016. 8. 22
 #
+#def true:
+# if true:
+#  by + s / 4.0 
 #
+#def 
+#if member of by~ty = ly,
+#
+###365*(ty-by)+s(# of leap yr in between ty, by) + (tm-bm)*30+x(# of bm~tm = 1,3,5..., if bm~tm = 2, then -2)) + (td-bd)
+#-------------------------------------------------
 #
 #
 
