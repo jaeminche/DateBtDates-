@@ -33,13 +33,13 @@ def nextDay(year, month, day):
     Simple version: assume every month has 30 days.
     """
     # YOUR CODE HERE
-    if day < 30:
-      return year, month, day + 1
-    else:
-      if month < 12:
-        return year, month + 1, 1
-      else:
-        return year + 1, 1, 1
+    if day < 30:                    # if day is less than 30
+      return year, month, day + 1   #retun day + 1
+    else:                           #in the case that day equals to 30 or more
+      if month < 12:                #if month is less than 12
+        return year, month + 1, 1   #retun 1 for the day, and for month, month + 1
+      else:                         #in the case that the month equals to 12
+        return year + 1, 1, 1       #return 1 for day, 1 for month, year +1
 
 print nextDay(1999, 12, 30)
 
