@@ -27,13 +27,28 @@
 #-------------------------------------------------
 #
 #
+
+def isLeapYear(year):
+    if False:
+        year%4 != 0
+    elif True:
+        year%100 != 0
+    elif False:
+        year%400 != 0
+    elif True:  
+    daysInMonth = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    return(daysInMonth[month-1])
+
 def daysInMonth(year, month):
-    daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-    return(daysInMonth[month-1])   
+    if daysInMonth(year) == isLeapYear(year):
+        return isLeapYear(year)
+    else:
+      daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+      return(daysInMonth[month-1])   
 
 def nextDay(year, month, day):              #ok, define what nextDay is
     """Simple version: assume every month has 30 days"""
-    if day < daysInMonth(year, month):                            #if day is less than 30
+    if day < daysInMonth(year, month):      #if day is less than 31, 28, 30, or 29
         return year, month, day + 1         #return next day
     else:                                   #if not, in other words, when day is 30 or more,
         if month == 12:                     #if month is 12 (12.30)
