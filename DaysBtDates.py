@@ -29,23 +29,22 @@
 #
 
 def isLeapYear(year):
-    if False:
-        year%4 != 0
-    elif True:
-        year%100 != 0
-    elif False:
-        year%400 != 0
-    elif True:  
-    daysInMonth = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-    return(daysInMonth[month-1])
+    if year%4 != 0:
+      return 'common'
+    elif year%100 != 0:
+      return year
+    elif year%400 != 0:
+      return 'common'
+    return year
 
 def daysInMonth(year, month):
-    if daysInMonth(year) == isLeapYear(year):
-        return isLeapYear(year)
-    else:
-      daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-      return(daysInMonth[month-1])   
-
+    daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    if daysInMonth[month-1] == 28:
+        if daysInMonth(year) == isLeapYear(year):
+            return 29
+        return 28
+    return(daysInMonth[month-1]) 
+    
 def nextDay(year, month, day):              #ok, define what nextDay is
     """Simple version: assume every month has 30 days"""
     if day < daysInMonth(year, month):      #if day is less than 31, 28, 30, or 29
