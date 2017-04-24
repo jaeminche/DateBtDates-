@@ -6,44 +6,36 @@
 # Assume that the birthday and current date are correct dates (and no 
 # time travel). 
 #
-#----def. of leap year----------
+#----def. of leap year----brought from wiki------
 #if (year is not divisible by 4) then (it is a common year)
 #else if (year is not divisible by 100) then (it is a leap year)
 #else if (year is not divisible by 400) then (it is a common year)
 #else (it is a leap year)
-#-------------------------------
-#------basic algebraic equation for brainstorming-----------
-# 2017. 3. 22
-#-2016. 8. 22
-#
-#def true:
-# if true:
-#  by + s / 4.0 
-#
-#def 
-#if member of by~ty = ly,
-#
+#-----------------------------------------------------------------------------------
+#------notes : basic algebraic equation for brainstorming-(down to line 18)
+#BUT THIS DID NOT HELP AT ALL, DAVE SOLVED IT IN A DIFFERENT WAY, though, just for record----------
 ###365*(ty-by)+s(# of leap yr in between ty, by) + (tm-bm)*30+x(# of bm~tm = 1,3,5..., if bm~tm = 2, then -2)) + (td-bd)
-#-------------------------------------------------
+#-------------------------------------------------------------------------------------------------------
 #
 #
 
-def isLeapYear(year):
-    if year%4 != 0:
+def isLeapYear(year):             #define leap year
+    if year%4 != 0:               
       return 'common'
     elif year%100 != 0:
       return year
     elif year%400 != 0:
       return 'common'
-    return year
+    return year                   #return leap year
 
 def daysInMonth(year, month):
-    daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-    if daysInMonth[month-1] == 28:
-        if daysInMonth(year) == isLeapYear(year):
-            return 29
-        return 28
-    return(daysInMonth[month-1]) 
+    daysOfMonth = [
+    31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
+    ]
+    if month == 2:                                    #when month is 2,                                 
+        if year == isLeapYear(year):                  #see year if it is leapyear
+          return 29                                   #if it is, return 29
+    return(daysOfMonth[month-1])                      #if not, just return 28 for Feb and #s accordingly for the rest of months
     
 def nextDay(year, month, day):              #ok, define what nextDay is
     """Simple version: assume every month has 30 days"""
@@ -71,7 +63,6 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):       #Functions
        in Gregorian calendar, and the first date is not after
        the second."""
      
-    # YOUR CODE HERE!
     assert not whetherbefore(year2, month2, day2, year1, month1, day1)  #AssertionError gets raised if date2 is before date1
     totaldates = 0                                                    #below is a PSEUDOCODE!!!
     while whetherbefore(year1, month1, day1, year2, month2, day2):    #while True (as long as date1 is before date2; see helper function)
@@ -79,7 +70,7 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):       #Functions
       totaldates += 1                                                 #this functions as a counter for the loop, as to how many times nextDay worked in this loop until it gets the day before date2
     return totaldates                                                 #return total days between dates of the two *the reason for the indentation in this way is to escape the while block(? maybe)
 
-print daysBetweenDates(2017,2,23,2017,4,23)   
+print daysBetweenDates(1983,2,7,1987,1,2)   
 
     ##
 
