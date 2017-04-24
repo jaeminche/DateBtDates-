@@ -41,7 +41,7 @@ def nextDay(year, month, day):              #ok, define what nextDay is
     """Simple version: assume every month has 30 days"""
     if day < daysInMonth(year, month):      #if day is less than 31, 28, 30, or 29
         return year, month, day + 1         #return next day
-    else:                                   #if not, in other words, when day is 30 or more,
+    else:                                   #in other cases, in other words, when day is 30(31,28,29) or more,
         if month == 12:                     #if month is 12 (12.30)
             return year + 1, 1, 1           #return next year and Jan. 1
         else:                               #if not, in other words, when month is not 12
